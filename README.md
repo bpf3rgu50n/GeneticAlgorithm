@@ -47,7 +47,7 @@ IGeneticAlgorithm evolver = factory.Create(networkConfig);
 ```
 
 We can also go a step further by also specifying all of the settings for the algorithm:
-```
+```c#
 GenerationConfigurationSettings generationSettings = new GenerationConfigurationSettings
             {
                 UseMultithreading = true,
@@ -64,7 +64,7 @@ IGeneticAlgorithm evolver = factory.Create(networkConfig, generationSettings, ev
 ```
 
 Additionally, we can override the factories for `IBreeder`, `IMutator`, and `IEvalWorkingSet` by injecting the objects to the `Create()` method. A good reason for doing this is if you desire to override the default mutation settings, you can do so specifying your own `MutationConfigurationSettings`:
-```
+```c#
 MutationConfigurationSettings mutationSettings = new MutationConfigurationSettings
             {
                 MutateAxonActivationFunction = true,
