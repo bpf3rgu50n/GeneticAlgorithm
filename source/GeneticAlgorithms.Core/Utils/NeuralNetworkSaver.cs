@@ -17,7 +17,8 @@ public partial class NeuralNetworkSaver : INeuralNetworkSaver
     {
         NeuralNetworkGene genes = network.GetGenes();
 
-        string jsonString = JsonSerializer.Serialize(genes);
+        JsonSerializerOptions options = new() { WriteIndented = true };
+        string jsonString = JsonSerializer.Serialize(genes, options);
 
         string minimized = MinifyJson(jsonString);
         string filename = string.Format("\\network_eval_{0}_epoch_{1}_date_{2}.json", networkEvaluation, epoch, DateTime.Now.Ticks);
